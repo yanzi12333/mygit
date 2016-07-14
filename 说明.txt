@@ -1,0 +1,52 @@
+首先在web.xml中配置：<context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/classes/com/ssm/web/config/spring/applicationContext-*.xml
+		</param-value>
+  </context-param>
+扫描applicationContext-dao.xml中配置链接数据库、配置全局文件SqlMapConfig.xml。
+然后mapper扫描器动态扫描所有在com/ssm/mapper中的所有mapper
+其中包含personMapper.java  personMapper.xml personMapper.xml中利用mabatis设置<select对数据库各种增删改查操作。
+在applicationContext-service.xml中配置<bean id="personService" class="com.ssm.web.service.impl.PersonServiceImpl"/>
+</beans>在personServiceImpl.java中有函数
+private PersonMapper personMapper;
+
+	@Override
+	public List<Person> queryAll() throws Exception {
+		// TODO Auto-generated method stub
+		return personMapper.queryAll();
+	}
+此时调用personMapper.xml中方法<select id="queryAll" resultType="com.ssm.web.entity.Person"> 
+		select * from t_person
+	</select>
+在HelloWorldController创建对象private PersonService personService;
+其中personServiceImpl.java实现接口personService.java
+public ModelAndView queryAll(HttpServletRequest request,
+	首先在web.xml中配置：<context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/classes/com/ssm/web/config/spring/applicationContext-*.xml
+		</param-value>
+  </context-param>
+扫描applicationContext-dao.xml中配置链接数据库、配置全局文件SqlMapConfig.xml。
+然后mapper扫描器动态扫描所有在com/ssm/mapper中的所有mapper
+其中包含personMapper.java  personMapper.xml personMapper.xml中利用mabatis设置<select对数据库各种增删改查操作。
+在applicationContext-service.xml中配置<bean id="personService" class="com.ssm.web.service.impl.PersonServiceImpl"/>
+</beans>在personServiceImpl.java中有函数
+private PersonMapper personMapper;
+
+	@Override
+	public List<Person> queryAll() throws Exception {
+		// TODO Auto-generated method stub
+		return personMapper.queryAll();
+	}
+此时调用personMapper.xml中方法<select id="queryAll" resultType="com.ssm.web.entity.Person"> 
+		select * from t_person
+	</select>
+在HelloWorldController创建对象private PersonService personService;
+其中personServiceImpl.java实现接口personService.java
+public ModelAndView queryAll(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+List<Person> personList = personService.queryAll();//调用方法到显示层ModelAndView
+至此服务层显示出函数方法然后到显示层
+		HttpServletResponse response) throws Exception {
+List<Person> personList = personService.queryAll();//调用方法到显示层ModelAndView
+至此服务层显示出函数方法然后到显示层
